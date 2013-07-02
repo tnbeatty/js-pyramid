@@ -96,10 +96,15 @@ var P = {
 		});
 
 		// Set popups on hover for the bars using Tipsy
-		$('.lbar,.rbar').tipsy({
-			title: 'id',
+		$('.lbar').tipsy({
+			title: 'p-val',
 			fade: true,
-			gravity: 's'
+			gravity: 'e'
+		});
+		$('.rbar').tipsy({
+			title: 'p-val',
+			fade: true,
+			gravity: 'w'
 		});
 	},
 
@@ -133,6 +138,7 @@ var P = {
 
 		$('.lbar').each(function(index) {
 			var newBarWidth = P.popToPixels(P.pyramid.leftVals[index]);
+			$(this).attr('p-val', P.pyramid.leftVals[index]);
 			if (newBarWidth > P.pyramid.maxpx) {
 				console.log('Left bar ' + index + ' value overflow.');
 			}
@@ -142,6 +148,7 @@ var P = {
 		});
 		$('.rbar').each(function(index) {
 			var newBarWidth = P.popToPixels(P.pyramid.rightVals[index]);
+			$(this).attr('p-val', P.pyramid.rightVals[index]);
 			if (newBarWidth > P.pyramid.maxpx) {
 				console.log('Right bar ' + index + ' value overflow.');
 			}
