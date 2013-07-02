@@ -3,6 +3,15 @@ Pyramid
 
 Clone, fire up your favorite webserver, and check out the demo.
 
+Dependencies
+---
+
+You must include jQuery, jQueryUI and Tipsy in your code before pyramid. Information for these libraries can be found at the following links:
+
+* [jQuery](http://jquery.com)
+* [jQueryUI](http://jqueryui.com)
+* [Tipsy](http://onehackoranother.com/projects/jquery/tipsy/)
+
 Usage
 ---
 
@@ -20,9 +29,9 @@ First, you need to initialize the pyramid. This is done with the initPyramid fun
 
 Next, you need to add some initial values. Call the `drawPyramid()` method with three parameters:
 
-	* `leftValues` : An array of 20 integers between 0 and the maximum value that you specified when you initialized the pyramid. These values will be represented on the left side of the pyramid.
-	* `rightValues` : An array of 20 integers between 0 and the maximum value that you specified when you initialized the pyramid. These values will be represented on the right side of the pyramid.
-	* `eventListener` : The callback function that will be triggered anytime the left or right values change. For example: if the user drags one of the bars of the chart, resizing it, the new size is converted to a value proportional to the relative bar size and then saved in place of the old value. Then, `eventListener` is called with the parameters `leftValues` and `rightValues`. These parameters are arrays of 20 integers. See main.js for a working example.
+* `leftValues` : An array of 20 integers between 0 and the maximum value that you specified when you initialized the pyramid. These values will be represented on the left side of the pyramid.
+* `rightValues` : An array of 20 integers between 0 and the maximum value that you specified when you initialized the pyramid. These values will be represented on the right side of the pyramid.
+* `eventListener` : The callback function that will be triggered anytime the left or right values change. For example: if the user drags one of the bars of the chart, resizing it, the new size is converted to a value proportional to the relative bar size and then saved in place of the old value. Then, `eventListener` is called with the parameters `leftValues` and `rightValues`. These parameters are arrays of 20 integers. See main.js for a working example.
 
 Example
 ---

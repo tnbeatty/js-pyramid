@@ -2,32 +2,32 @@
 * pyramid.css
 * Nate Beatty
 */
-.pyramid #container {
+.pyramid #P-container {
   height: 300px;
   width: 350px;
   float: left;
-  margin: 20px; }
-  .pyramid #container #lheader, .pyramid #container #rheader {
+  margin: 0; }
+  .pyramid #P-container #lheader, .pyramid #P-container #rheader {
     width: 175px;
     height: 20px;
     float: left;
     text-align: center;
     font-size: small; }
-  .pyramid #container #lcontainer, .pyramid #container #rcontainer {
+  .pyramid #P-container #lcontainer, .pyramid #P-container #rcontainer {
     height: 280px;
     width: 175px;
     float: left; }
-.pyramid .bar {
+.pyramid .P-bar {
   height: 10px;
   width: 100%;
   margin-top: 4px;
   position: relative; }
-.pyramid .lbar, .pyramid .rbar {
+.pyramid .P-lbar, .pyramid .P-rbar {
   height: 10px;
   width: 150px;
   display: block;
   position: absolute; }
-.pyramid .lbar {
+.pyramid .P-lbar {
   background: #2f69bf; }
-.pyramid .rbar {
+.pyramid .P-rbar {
   background: #a2bf2f; }

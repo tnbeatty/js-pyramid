@@ -47,7 +47,7 @@ var P = {
 	 * represent. The value of this parameter is used to calculate bar widths
 	 * each time the pyramid is redrawn.
 	 */
-	initPyramid: function(maxpop) {
+	initPyramid: function(maxpop, options) {
 		console.log('Building the pyramid. Max value: ' + maxpop);
 
 		$('.pyramid div').html(''); // start fresh - clear any html in the pyramid
@@ -56,7 +56,7 @@ var P = {
 		var lbars = [];
 		for (var i = 0; i < 20; i++) {
 			var barID = 'lbar' + i;
-			lbars[i] = '<div class="bar"><div class="lbar" id="' + barID + '"></div></div>';
+			lbars[i] = '<div class="P-bar"><div class="P-lbar" id="' + barID + '"></div></div>';
 		};
 		var lbarDivs = lbars.join('');
 
@@ -64,45 +64,45 @@ var P = {
 		var rbars = [];
 		for (var i = 0; i < 20; i++) {
 			var barID = 'rbar' + i;
-			rbars[i] = '<div class="bar"><div class="rbar" id="' + barID + '"></div></div>';
+			rbars[i] = '<div class="P-bar"><div class="P-rbar" id="' + barID + '"></div></div>';
 		};
 		var rbarDivs = rbars.join('');
 
-		$('.pyramid').append('<div id="container"></div>');
-		$('#container').append('<div id="lheader">Male</div>');
-		$('#container').append('<div id="rheader">Female</div>');
-		$('#container').append('<div id="lcontainer">' + lbarDivs + '</div>');
-		$('#container').append('<div id="rcontainer">' + rbarDivs + '</div>');
-		$('.lbar').resizable({
+		$('.pyramid').append('<div id="P-container"></div>');
+		$('#P-container').append('<div id="lheader"></div>');
+		$('#P-container').append('<div id="rheader"></div>');
+		$('#P-container').append('<div id="lcontainer">' + lbarDivs + '</div>');
+		$('#P-container').append('<div id="rcontainer">' + rbarDivs + '</div>');
+		$('.P-lbar').resizable({
 			handles: 'w',
 			maxWidth: P.pyramid.maxpx,
 			minWidth: 0.5
 		});
-		$('.rbar').resizable({
+		$('.P-rbar').resizable({
 			handles: 'e',
 			maxWidth: P.pyramid.maxpx,
 			minWidth: 0.5
 		});
 
 		P.pyramid['maxpop'] = maxpop;
-		P.pyramid['maxpx'] = $('.bar').first().width();
+		P.pyramid['maxpx'] = $('.P-bar').first().width();
 
 		// Set listeners to respond to events within the pyramid
-		$('.lbar,.rbar').resize(function() {
+		$('.P-lbar,.P-rbar').resize(function() {
 			P.barWasDragged($(this));
 		});
-		$('.lbar,.rbar').on('resizestop', function(event, ui) {
+		$('.P-lbar,.P-rbar').on('resizestop', function(event, ui) {
 			P.barDidStopResizing($(this), event, ui);
 		});
 
 		// Set popups on hover for the bars using Tipsy
-		$('.lbar').tipsy({
-			title: 'p-val',
+		$('.P-lbar').tipsy({
+			title: 'P-val',
 			fade: true,
 			gravity: 'e'
 		});
-		$('.rbar').tipsy({
-			title: 'p-val',
+		$('.P-rbar').tipsy({
+			title: 'P-val',
 			fade: true,
 			gravity: 'w'
 		});
@@ -136,9 +136,9 @@ var P = {
 			return;
 		}
 
-		$('.lbar').each(function(index) {
+		$('.P-lbar').each(function(index) {
 			var newBarWidth = P.popToPixels(P.pyramid.leftVals[index]);
-			$(this).attr('p-val', P.pyramid.leftVals[index]);
+			$(this).attr('P-val', P.pyramid.leftVals[index]);
 			if (newBarWidth > P.pyramid.maxpx) {
 				console.log('Left bar ' + index + ' value overflow.');
 			}
@@ -146,7 +146,7 @@ var P = {
 			var leftoffset = P.pyramid.maxpx - newBarWidth;
 			$(this).css('left', leftoffset); // To right align the left bars
 		});
-		$('.rbar').each(function(index) {
+		$('.P-rbar').each(function(index) {
 			var newBarWidth = P.popToPixels(P.pyramid.rightVals[index]);
 			$(this).attr('p-val', P.pyramid.rightVals[index]);
 			if (newBarWidth > P.pyramid.maxpx) {
