@@ -8,11 +8,14 @@
   float: left;
   margin: 20px;
   background: #fff; }
+  .pyramid #container #lheader, .pyramid #container #rheader {
+    width: 175px;
+    height: 20px;
+    float: left; }
   .pyramid #container #lcontainer, .pyramid #container #rcontainer {
     height: 280px;
     width: 175px;
-    float: left;
-    margin-top: 20px; }
+    float: left; }
   .pyramid #container #lcontainer {
     background: orange; }
   .pyramid #container #rcontainer {
