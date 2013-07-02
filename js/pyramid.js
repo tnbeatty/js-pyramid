@@ -2,12 +2,7 @@
  * pyramid.js
  * Nate Beatty
  *
- * The Javascript to build a population pyramid
- * for the Intlpop population simulation project.
- *
- * Uses the Tipsy JS library for hover-over titles.
- * Documentation for Tipsy can be found at
- * http://onehackoranother.com/projects/jquery/tipsy
+ * The Javascript to build a population pyramid.
  */
 
 "use strict";
