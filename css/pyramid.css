@@ -11,7 +11,9 @@
   .pyramid #container #lheader, .pyramid #container #rheader {
     width: 175px;
     height: 20px;
-    float: left; }
+    float: left;
+    text-align: center;
+    font-size: small; }
   .pyramid #container #lcontainer, .pyramid #container #rcontainer {
     height: 280px;
     width: 175px;

@@ -5,61 +5,23 @@
 
 "use strict";
 
-window.onload = function() {
+$(document).ready(function() {
 
-	/*************************/
-	/*  Resizable Rectangle  */
-	/*************************/
-
-	var paper = Raphael("paper", 300, 300),
-	rect = paper.rect(50, 50, 100, 100).attr({
-		fill: "hsb(1, 1, 1)",
-		}),
-	rstart = function () {
-		// storing original coordinates
-		this.ox = this.attr("x");
-		this.oy = this.attr("y");
-		
-		this.ow = this.attr("width");
-		this.oh = this.attr("height");
-	},
-	rmove = function (dx, dy) {
-		// move will be called with dx and dy
-		// this.attr({x: this.ox, y: this.oy});
-		this.attr({width: this.ow + dx, height: this.oh + dy});
+	var valsWereChanged = function (mVals, fVals) {
+		console.log(mVals);
+		console.log(fVals);
 	};
 
-	rect.drag(rmove, rstart);
-
-	/******************/
-	/*  Raphael Plot  */
-	/******************/
-
-	var canvas = Raphael("canvas", 300, 300),
-	chart = canvas.barchart(0, 0, 260, 260, [76, 70, 67, 71, 69], {}),
-	rstart2 = function () {
-		// storing original coordinates
-		this.ox = this.attr("x");
-		this.oy = this.attr("y");
-		
-		this.ow = this.attr("width");
-		this.oh = this.attr("height");
-	},
-	rmove2 = function (dx, dy) {
-		// move will be called with dx and dy
-		// this.attr({x: this.ox, y: this.oy});
-		this.attr({width: this.ow + dx, height: this.oh + dy});
-		this['bar'].attr({h: 200});
-		this['h'] = 200;
-	},
-	clk = function () {
-		// console.log('Bar Clicked.');
-		// console.log(this);
+	// Generates random populations between 0 and 2000000
+	var randomList = function() { // For Testing
+		var list = [];
+		for (var i = 1; i <= 20; i++) {
+			list.push(Math.floor(Math.random() * 1900000) + 1);
+		}
+		return list;
 	};
 
-	chart.each(function () {
-		// console.log(this);
-		this.drag(rmove2, rstart2);
-		this.click(clk);
-	});
-};
+	P.initPyramid(2000000);
+	P.drawPyramid(randomList(), randomList(), valsWereChanged);
+
+});

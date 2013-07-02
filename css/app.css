@@ -7,10 +7,3 @@ body {
 
 #content {
   padding: 20px; }
-
-#paper, #canvas {
-  background: #fff;
-  height: 300px;
-  width: 300px;
-  margin: 20px;
-  float: left; }
