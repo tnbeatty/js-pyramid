@@ -18,12 +18,12 @@
     width: 175px;
     float: left; }
 .pyramid .P-bar {
-  height: 10px;
+  height: 8px;
   width: 100%;
-  margin-top: 4px;
+  margin-top: 3px;
   position: relative; }
 .pyramid .P-lbar, .pyramid .P-rbar {
-  height: 10px;
+  height: 8px;
   width: 150px;
   display: block;
   position: absolute; }
