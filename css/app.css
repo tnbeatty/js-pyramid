@@ -11,3 +11,6 @@ body {
   height: 300px;
   margin: 20px auto;
   border: 1px solid #333; }
+
+form {
+  text-align: center; }
