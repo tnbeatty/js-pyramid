@@ -3,6 +3,8 @@ Pyramid
 
 A horizontal, two-sided bar chart with a centered y-axis. Useful for comparing two sets of data. Clone, fire up your favorite webserver, and check out the demo.
 
+This project is still very much in development and function names and parameters may change as I see fit, without notice.
+
 Dependencies
 ---
 
